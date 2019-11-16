@@ -1,0 +1,224 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Sat Nov 16 22:13:45 2019 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>toilet</title>
+
+</head>
+<body>
+
+<h1 align="center">toilet</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#USAGE">USAGE</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#EXAMPLES">EXAMPLES</a><br>
+<a href="#BUGS">BUGS</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">TOIlet &minus;
+display large colourful characters</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>toilet</b> [
+<b>&minus;hkostvSW</b> ] [ <b>&minus;d</b>
+<i>fontdirectory</i> ]</p>
+
+<p style="margin-left:22%;">[ <b>&minus;f</b>
+<i>fontfile</i> ] [ <b>&minus;F</b> <i>filter</i> ] [
+<b>&minus;w</b> <i>outputwidth</i> ] <br>
+[ <b>&minus;I</b> <i>infocode</i> ] [ <b>&minus;E</b>
+<i>format</i> ] [ <i>message</i> ]</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>TOIlet</b>
+prints text using large characters made of smaller
+characters. It is similar in many ways to <b>FIGlet</b> with
+additional features such as Unicode handling, colour fonts,
+filters and various export formats.</p>
+
+<h2>USAGE
+<a name="USAGE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>TOIlet</b>
+either reads its input from the command line or from the
+standard input.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>&minus;f,
+&minus;&minus;font &lt;name&gt;</b></p>
+
+<p style="margin-left:22%;">Use the given font instead of
+the default value. Fonts are <b>.flf</b> or <b>.tlf</b>
+files stored in the <b>@datarootdir@/figlet</b> directory.
+Fonts are looked first in the font directory, then in the
+current directory. There is also a special built-in font
+called <i>term</i> that serves as a fallback if no font is
+available.</p>
+
+<p style="margin-left:11%;"><b>&minus;d,
+&minus;&minus;directory &lt;dir&gt;</b></p>
+
+<p style="margin-left:22%;">Specify the directory in which
+to look for fonts. The default value is set at build time
+and usually defaults to <b>@datarootdir@/figlet.</b></p>
+
+<p style="margin-left:11%;"><b>&minus;s, &minus;S,
+&minus;k, &minus;W, &minus;o</b></p>
+
+<p style="margin-left:22%;">Select character composition
+rules. <b>&minus;S</b> sets smushing (nicely merging
+glyphs), <b>&minus;k</b> sets kerning (rendering
+subcharacters as close to each other as possible),
+<b>&minus;W</b> renders characters at their full width and
+<b>&minus;o</b> sets overlapping (glyphs slightly overlap
+the previous one). <b>&minus;s</b> (default behaviour) uses
+the font&rsquo;s smushing information if any, otherwise
+forces overlapping, or does nothing if the glyph only has
+one subcharacter.</p>
+
+<p style="margin-left:11%;"><b>&minus;w,
+&minus;&minus;width &lt;width&gt;</b></p>
+
+<p style="margin-left:22%;">Set the output width. By
+default, <b>TOIlet</b> will wrap its output at 80 character
+columns.</p>
+
+<p style="margin-left:11%;"><b>&minus;t,
+&minus;&minus;termwidth</b></p>
+
+<p style="margin-left:22%;">Set the output width to the
+terminal width.</p>
+
+<p style="margin-left:11%;"><b>&minus;F,
+&minus;&minus;filter &lt;filters&gt; <br>
+&minus;F, &minus;&minus;filter list <br>
+&minus;&minus;rainbow, &minus;&minus;metal</b></p>
+
+<p style="margin-left:22%;">Specify a list of filters to be
+applied to the output. <i>&lt;filters&gt;</i> is a
+colon-separated list of filters such as
+<i>crop:rotate:rainbow</i> and the special argument
+<i>list</i> outputs a list of available filters.</p>
+
+
+<p style="margin-left:22%; margin-top: 1em"><b>&minus;&minus;rainbow</b>
+and <b>&minus;&minus;metal</b> are shortcuts to commonly
+used filters that are guaranteed to exist. Several
+<b>&minus;F</b> flags can also be specified on the command
+line, in which case filters will be applied in order of
+appearance.</p>
+
+<p style="margin-left:11%;"><b>&minus;E,
+&minus;&minus;export &lt;format&gt; <br>
+&minus;E, &minus;&minus;export list <br>
+&minus;&minus;irc, &minus;&minus;html</b></p>
+
+<p style="margin-left:22%;">Specify the output format. By
+default, <b>TOIlet</b> will output UTF-8 text using ANSI
+colour codes suitable for most terminals such as XTerm or
+rxvt. <i>&lt;format&gt;</i> is the name of the export format
+as recognised by libcaca. The special argument <i>list</i>
+outputs a list of available export formats.</p>
+
+
+<p style="margin-left:22%; margin-top: 1em"><b>&minus;&minus;irc</b>
+and <b>&minus;&minus;html</b> are shortcuts to commonly used
+export formats that are guaranteed to exist.</p>
+
+<p style="margin-left:11%;"><b>&minus;h,
+&minus;&minus;help</b></p>
+
+<p style="margin-left:22%;">Display a short help message
+and exit.</p>
+
+<p style="margin-left:11%;"><b>&minus;I,
+&minus;&minus;infocode &lt;code&gt;</b></p>
+
+<p style="margin-left:22%;">Print a <b>FIGlet</b> infocode.
+This flag is only here for <b>FIGlet</b> compatibility, see
+the <b>figlet</b> manpage for more information about it.</p>
+
+<p style="margin-left:11%;"><b>&minus;v,
+&minus;&minus;version</b></p>
+
+<p style="margin-left:22%;">Output version information and
+exit.</p>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">toilet Hello
+World</p>
+
+<p style="margin-left:11%; margin-top: 1em">toilet Hello |
+toilet</p>
+
+<p style="margin-left:11%; margin-top: 1em">tail -f
+/var/log/messages | toilet -f term --rainbow</p>
+
+<h2>BUGS
+<a name="BUGS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>FIGlet</b>
+compatibility is not complete yet.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>TOIlet</b>
+and this manual page were written by Sam Hocevar
+&lt;sam@hocevar.net&gt;. There is a webpage available at
+http://caca.zoy.org/wiki/toilet .</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+ 
+<p style="margin-left:11%; margin-top: 1em">figlet(6)</p>
+<hr>
+</body>
+</html>
