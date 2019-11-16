@@ -1,7 +1,7 @@
 .TH toilet 1 "2006-11-10" "libcaca @PACKAGE_VERSION@"
-.SH 名前
-TOIlet \- 文字をカラフルなAAにするコマンドです。
-.SH 目次
+.SH NAME
+TOIlet \- display large colourful characters
+.SH SYNOPSIS
 .B toilet
 [
 .B \-hkostvSW
@@ -35,35 +35,36 @@ TOIlet \- 文字をカラフルなAAにするコマンドです。
 .I message
 ]
 .RI
-.SH 説明
-.B toilet
-テキストをAscArt化します。
-.B FIGlet
-Unicode処理、カラーフォント、フィルターなどの追加機能
-およびさまざまなエクスポート形式。
-.RI
-.SH 使い方
+.SH DESCRIPTION
 .B TOIlet
-コマンドラインまたは標準入力から入力を読み取ります。
+prints text using large characters made of smaller characters. It is similar
+in many ways to
+.B FIGlet
+with additional features such as Unicode handling, colour fonts, filters
+and various export formats.
 .RI
-.SH オプション
+.SH USAGE
+.B TOIlet
+either reads its input from the command line or from the standard input.
+.RI
+.SH OPTIONS
 .TP
 .B \-f, \-\-font <name>
-既定のフォントの代わりに指定のフォントを使用します。フォントは 
-.B @datarootdir@/FIGlet 
-ディレクトリに保存されている 
+Use the given font instead of the default value. Fonts are
 .B .flf
-または 
-.B .tlf 
-ファイルです。フォントは最初にフォントディレクトリで検索され、次に現在のディレクトリで検索されます。
- また 
+or
+.B .tlf
+files stored in the
+.B /usr/local/share/figlet
+directory. Fonts are looked first in the font directory, then in the current
+directory. There is also a special built-in font called
 .I term
-という特別な組み込みフォントもあり、使用可能なフォントがない場合のフォールバックとして機能します。
+that serves as a fallback if no font is available.
 .TP
 .B \-d, \-\-directory <dir>
 Specify the directory in which to look for fonts. The default value is set
 at build time and usually defaults to
-.B @datarootdir@/figlet.
+.B /usr/local/share/figlet.
 .TP
 .B \-s, \-S, \-k, \-W, \-o
 Select character composition rules.
@@ -147,22 +148,20 @@ manpage for more information about it.
 .B \-v, \-\-version
 Output version information and exit.
 .RI
-.SH 例
-toilet "田所浩二"
+.SH EXAMPLES
+toilet Hello World
 
-toilet "野獣先輩" | toilet
+toilet Hello | toilet
 
 tail -f /var/log/messages | toilet -f term --rainbow
 .RI
-.SH バグたち
+.SH BUGS
 .B FIGlet
 compatibility is not complete yet.
 .RI
-.SH 著者
+.SH AUTHOR
 .B TOIlet
 and this manual page were written by Sam Hocevar <sam@hocevar.net>. There is a
 webpage available at http://caca.zoy.org/wiki/toilet .
-.SH 翻訳者
-.B kokkiemouse
 .SH SEE ALSO
 figlet(6)
