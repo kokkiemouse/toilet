@@ -1,4 +1,4 @@
-SUBDIRS = ./ja
+
 EXTRA_DIST = toilet.1.in
 CLEANFILES = toilet.1
 
