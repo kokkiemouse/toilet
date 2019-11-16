@@ -56,6 +56,7 @@ AC_CONFIG_FILES([
   tools/Makefile
   fonts/Makefile
   doc/Makefile
+  doc/ja/Makefile
   test/Makefile
 ])
 AC_OUTPUT
